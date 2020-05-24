@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ToolBar></ToolBar>
+    <transition name="routing-fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ToolBar from './components/ToolBar'
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    ToolBar
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body {
+  margin: 0;
+}
+a {
+  color: #34495e;
+  text-decoration: underline;
+}
+a:hover {
+  color: "42b883";
+  text-decoration: underline;
+}
+a.router-link-active {
+  text-decoration: underline;
+}
+.routing-fade-enter-active, .routing-fadeleave-active {
+  transition: opacity .3s ease;
+}
+.routing-fade-enter, .routing-fade-leave-to {
+  opacity: 0;
 }
 </style>
